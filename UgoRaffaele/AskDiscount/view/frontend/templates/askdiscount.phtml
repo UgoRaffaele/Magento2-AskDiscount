@@ -1,0 +1,47 @@
+<?php if($this->isModuleEnabled()): ?>
+<div class="yet_another_discount"> 
+	<div id="sadiscount_form" class="sadiscount_form" style="display:none;">
+		<form class="form contact discount" action="<?php echo $block->getUrl('askdiscount/index/index'); ?>" id="contact-form" method="post" data-hasrequired="* Required Fields" style="width:100%" data-mage-init='{"validation":{}}'>
+			<fieldset class="fieldset">
+				<legend class="legend"><span><?php echo __('Ask a Discount') ?></span></legend><br>
+      	         <div class="field name required">
+					<label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+					<div class="control">
+						<input name="name" id="name" title="Name" value="" class="input-text" type="text" data-validate="{required:true}" aria-required="true">
+					</div>
+				</div>
+				<div class="field email required">
+					<label class="label" for="email"><span><?php echo __('Email') ?> </span></label>
+					<div class="control">
+						<input name="email" id="email" title="Email" value="" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}" aria-required="true">
+					</div>
+				</div>
+				<div class="field comment required">
+					<label class="label" for="comment"><span><?php echo __('Message') ?></span></label>
+					<div class="control">
+						<textarea name="comment" id="comment" title="<?php echo __('What\'s on your mind?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}" aria-required="true"></textarea>
+					</div>
+				</div>
+				<input name="pname" id="pname" type="hidden" value="<?php echo  $this->getProductName(); ?>">
+				<input name="pid" id="pid" type="hidden" value="<?php echo  $this->getProductId(); ?>">
+            </fieldset>
+			<div class="actions-toolbar">
+				<div class="primary">
+					<input type="hidden" name="hideit" id="hideit" value="">
+					<button type="submit" title="Submit" class="action submit primary">
+						<span><?php echo __('Submit'); ?></span>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+	require(['jquery'], function($){
+		$('.sadiscount').click(function() {
+			$('.sadiscount_form').show();
+			$('html, body').stop().animate({scrollTop: $('.sadiscount_form').offset().top}, 600);
+		});
+	});
+	</script>
+</div>
+<?php endif; ?>

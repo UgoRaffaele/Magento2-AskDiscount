@@ -1,0 +1,20 @@
+.yet_another_discount {
+    width: 100%;
+    padding: 19px 30px;
+    font-weight: 600;
+    margin: 30px 0px;
+}
+
+.form.contact.discount {
+	margin-top: 0px;
+}
+
+.ask-button {
+    color: #ff4800;
+    font-weight: 700;
+}
+
+.querybutton {
+	background: #297aa3;
+    color: #FFFFFF;
+}
