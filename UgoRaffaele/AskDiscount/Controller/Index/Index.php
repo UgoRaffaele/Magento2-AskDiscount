@@ -55,13 +55,13 @@ class Index extends \Magento\Framework\App\Action\Action {
 				if (!\Zend_Validate::is(trim($contactName), 'NotEmpty')) {
 					$error = true;
 				}
-				if (!\Zend_Validate::is(trim($comment), 'NotEmpty')) {
-					$error = true;
-				}
 				if (!\Zend_Validate::is(trim($email), 'EmailAddress')) {
 					$error = true;
 				}
 				if (!\Zend_Validate::is(trim($telephone), 'NotEmpty')) {
+					$error = true;
+				}
+				if (!\Zend_Validate::is(trim($offer), 'NotEmpty')) {
 					$error = true;
 				}
 				if ($error) {

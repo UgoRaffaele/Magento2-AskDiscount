@@ -22,16 +22,16 @@
 						<input name="telephone" id="telephone" title="<?php echo __('Phone Number') ?>" value="" class="input-text" type="text" data-validate="{required:true}" aria-required="true">
 					</div>
 				</div>
-				<div class="field offer">
+				<div class="field offer required">
 					<label class="label" for="offer"><span><?php echo __('Offer') ?></span></label>
 					<div class="control">
-						<input name="offer" id="offer" title="<?php echo __('Offer') ?>" value="" class="input-text" type="text" data-validate="{required:false}" aria-required="false">
+						<input name="offer" id="offer" title="<?php echo __('Offer') ?>" value="" class="input-text" type="text" data-validate="{required:true}" aria-required="true">
 					</div>
 				</div>
-				<div class="field comment required">
+				<div class="field comment">
 					<label class="label" for="comment"><span><?php echo __('Message') ?></span></label>
 					<div class="control">
-						<textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}" aria-required="true"></textarea>
+						<textarea name="comment" id="comment" title="<?php echo __('What’s on your mind?') ?>" class="input-text" cols="5" rows="3" data-validate="{required:false}" aria-required="false"></textarea>
 					</div>
 				</div>
 				<input name="pname" id="pname" type="hidden" value="<?php echo  $this->getProductName(); ?>">
