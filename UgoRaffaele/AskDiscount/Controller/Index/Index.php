@@ -66,7 +66,6 @@ class Index extends \Magento\Framework\App\Action\Action {
 				if ($receiverEmail) { 
 					/* Receiver Detail  */
 					$receiverInfo = array(
-						'name' => 'Support',
 						'email' => $receiverEmail,
 					);
 				}
