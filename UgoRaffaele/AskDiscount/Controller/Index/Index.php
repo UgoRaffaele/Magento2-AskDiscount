@@ -41,6 +41,8 @@ class Index extends \Magento\Framework\App\Action\Action {
 			
 			$contactName=$this->getRequest()->getParam('name');
 			$email = $this->getRequest()->getParam('email');
+			$telephone = $this->getRequest()->getParam('telephone');
+			$offer = $this->getRequest()->getParam('offer');
 			$pid=$this->getRequest()->getParam('pid');
 			$pname=$this->getRequest()->getParam('pname');
 			$comment=$this->getRequest()->getParam('comment');
@@ -57,6 +59,9 @@ class Index extends \Magento\Framework\App\Action\Action {
 					$error = true;
 				}
 				if (!\Zend_Validate::is(trim($email), 'EmailAddress')) {
+					$error = true;
+				}
+				if (!\Zend_Validate::is(trim($telephone), 'NotEmpty')) {
 					$error = true;
 				}
 				if ($error) {
@@ -79,6 +84,8 @@ class Index extends \Magento\Framework\App\Action\Action {
 				$templateVariable = array(
 				   'name' => $contactName,
 				   'email'  => $email,
+				   'telephone' => $telephone,
+				   'offer' => $offer,
 				   'comment' => $comment
 				);
 			   
