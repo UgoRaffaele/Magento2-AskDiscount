@@ -22,4 +22,16 @@ class AskDiscountbutton extends \Magento\Framework\View\Element\Template
 		return $moduleEnabled;
 	}
 	
+	public function getProductId()
+	{
+		return $this->registry->registry('current_product')->getId();
+	}
+	
+	public function isAskDiscountEnabledForProduct()
+	{
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$product = $objectManager->get('Magento\Catalog\Model\Product')->load($this->getProductId());
+		return (boolean) $product->getAskDiscount();
+	}
+	
 }

@@ -1,5 +1,7 @@
 <?php if($this->isModuleEnabled()): ?>
-<button id="sadiscount" type="button" title="<?php echo __('Ask a Discount') ?>" class="action primary ask btn effect-button sadiscount">
-	<span><?php echo __('Ask a Discount') ?></span>
-</button>
+	<?php if($this->isAskDiscountEnabledForProduct()): ?>
+		<button id="sadiscount" type="button" title="<?php echo __('Ask a Discount') ?>" class="action primary ask btn effect-button sadiscount">
+			<span><?php echo __('Ask a Discount') ?></span>
+		</button>
+	<?php endif; ?>
 <?php endif; ?>
