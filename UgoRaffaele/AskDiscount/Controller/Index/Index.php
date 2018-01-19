@@ -85,6 +85,8 @@ class Index extends \Magento\Framework\App\Action\Action {
 				   'name' => $contactName,
 				   'email'  => $email,
 				   'telephone' => $telephone,
+				   'pid' => $pid,
+				   'pname' => $pname,
 				   'offer' => $offer,
 				   'comment' => $comment
 				);
