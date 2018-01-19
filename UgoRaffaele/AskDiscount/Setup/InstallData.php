@@ -29,7 +29,7 @@ class InstallData implements InstallDataInterface {
 				'group' => 'General',
 				'type' => 'int',
 				'label' => 'AskDiscount',
-				'input' => 'select',
+				'input' => 'boolean',
 				'class' => '',
 				'source' => 'Magento\Catalog\Model\Product\Attribute\Source\Boolean',
 				'global' => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_GLOBAL,
