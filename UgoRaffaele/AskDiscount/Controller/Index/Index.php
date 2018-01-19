@@ -39,14 +39,15 @@ class Index extends \Magento\Framework\App\Action\Action {
 		
 		if ($this->getRequest()->getParams()) {
 			
-			$contactName=$this->getRequest()->getParam('name');
+			$contactName = $this->getRequest()->getParam('name');
 			$email = $this->getRequest()->getParam('email');
 			$telephone = $this->getRequest()->getParam('telephone');
 			$offer = $this->getRequest()->getParam('offer');
-			$pid=$this->getRequest()->getParam('pid');
-			$pname=$this->getRequest()->getParam('pname');
-			$comment=$this->getRequest()->getParam('comment');
-			$receiverEmail=$this->scopeConfig->getValue('askdiscount/general/recipient_email', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+			$pid = $this->getRequest()->getParam('pid');
+			$sku = $this->getProductSKU($pid);
+			$pname = $this->getRequest()->getParam('pname');
+			$comment = $this->getRequest()->getParam('comment');
+			$receiverEmail = $this->scopeConfig->getValue('askdiscount/general/recipient_email', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 			
 			try {
 				
@@ -62,6 +63,9 @@ class Index extends \Magento\Framework\App\Action\Action {
 					$error = true;
 				}
 				if (!\Zend_Validate::is(trim($offer), 'NotEmpty')) {
+					$error = true;
+				}
+				if (!\Zend_Validate::is(trim($sku), 'NotEmpty')) {
 					$error = true;
 				}
 				if ($error) {
@@ -85,7 +89,7 @@ class Index extends \Magento\Framework\App\Action\Action {
 				   'name' => $contactName,
 				   'email'  => $email,
 				   'telephone' => $telephone,
-				   'pid' => $pid,
+				   'sku' => $sku,
 				   'pname' => $pname,
 				   'offer' => $offer,
 				   'comment' => $comment
@@ -167,6 +171,12 @@ class Index extends \Magento\Framework\App\Action\Action {
 			
 		} 
 	
+	}
+	
+	public function getProductSKU($pid) {
+		$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$product = $objectManager->get('Magento\Catalog\Model\Product')->load($pid);
+		return $product->getSku();
 	}
 	
 }
