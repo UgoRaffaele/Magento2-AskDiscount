@@ -1,15 +1,14 @@
 <?php
-
 namespace UgoRaffaele\AskDiscount\Block\Catalog\Product\View;
 
-class AskDiscount extends \Magento\Framework\View\Element\Template
-{
+class AskDiscount extends \Magento\Framework\View\Element\Template {
+	
 	protected $scopeConfig;
 	protected $registry;
 	
 	public function __construct(
-	\Magento\Framework\View\Element\Template\Context $context,
-	\Magento\Framework\Registry $registry
+		\Magento\Framework\View\Element\Template\Context $context,
+		\Magento\Framework\Registry $registry
 	){
 		$this->scopeConfig = $context->getScopeConfig();
 		$this->registry  = $registry;
